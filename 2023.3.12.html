@@ -1,0 +1,78 @@
+<!--
+ * @Author: yyshu 2671255784@qq.com
+ * @Date: 2023-03-12 20:30:50
+ * @LastEditors: yyshu 2671255784@qq.com
+ * @LastEditTime: 2023-03-12 20:49:11
+ * @FilePath: \css-demo\2023.3.12.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>太极图案</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        background-color: #95a5a6;
+      }
+      .taiji {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        box-sizing: border-box;
+        border: solid 2px #000;
+        border-bottom: solid 100px #000;
+        border-radius: 50%;
+        background-color: #fff;
+        animation: anim 4s linear infinite;
+      }
+      .taiji::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 98px;
+        height: 98px;
+        box-sizing: border-box;
+        border: solid 40px #000;
+        border-radius: 50%;
+        background-color: #fff;
+      }
+      .taiji::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 98px;
+        height: 98px;
+        box-sizing: border-box;
+        border: solid 40px #fff;
+        border-radius: 50%;
+        background-color: #000;
+      }
+      @keyframes anim {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <span class="taiji"></span>
+  </body>
+</html>
