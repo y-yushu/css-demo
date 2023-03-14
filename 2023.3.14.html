@@ -1,0 +1,288 @@
+<!--
+ * @Author: yyshu 2671255784@qq.com
+ * @Date: 2023-03-14 22:01:23
+ * @LastEditors: yyshu 2671255784@qq.com
+ * @LastEditTime: 2023-03-14 23:16:26
+ * @FilePath: \css-demo\2023.3.14.html
+ * @Description: 时钟
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>时钟</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          #ff4757,
+          #ff4757 50%,
+          #f9ca24 50%,
+          #f9ca24
+        );
+      }
+      body::after {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          160deg,
+          #1e90ff,
+          #1e90ff 50%,
+          transparent 50%,
+          transparent
+        );
+        animation: animate 4s ease-in-out infinite;
+      }
+      @keyframes animate {
+        0%,
+        100% {
+          transform: translateY(10px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .container {
+        position: relative;
+      }
+      .container::before {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        width: 100%;
+        height: 50px;
+        border-radius: 50%;
+        background: radial-gradient(
+          rgba(0, 0, 0, 0.2),
+          transparent,
+          transparent
+        );
+      }
+      .box {
+        position: relative;
+        z-index: 1;
+        width: 400px;
+        height: 400px;
+        backdrop-filter: blur(25px);
+        border-radius: 50%;
+        border: solid 1px rgb(255, 255, 255, 0.5);
+        animation: animate 4s ease-in-out infinite;
+        animation-delay: -1.5s;
+      }
+      .clock {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: solid 1px rgb(255, 255, 255, 0.5);
+        box-shadow: -10px -10px 20px rgba(0, 0, 0, 0.2),
+          10px -10px 20px rgba(0, 0, 0, 0.2), -10px 10px 20px rgba(0, 0, 0, 0.2),
+          10px 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .clock::before {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        z-index: 1;
+        border-radius: 50%;
+        background-color: #ffffff;
+      }
+      .hour,
+      .min,
+      .sec {
+        position: absolute;
+      }
+      .hour,
+      .hr {
+        width: 200px;
+        height: 200px;
+      }
+      .min,
+      .mn {
+        width: 250px;
+        height: 250px;
+      }
+      .sec,
+      .sc {
+        width: 300px;
+        height: 300px;
+      }
+      .hr,
+      .mn,
+      .sc {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+      }
+      .hr::before {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 100px;
+        background-color: #ff4757;
+        border-radius: 8px;
+      }
+      .mn::before {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 125px;
+        background-color: #f9ca24;
+        border-radius: 6px;
+      }
+      .sc::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 150px;
+        background-color: #1e90ff;
+        border-radius: 4px;
+      }
+      .back {
+        position: absolute;
+        width: 380px;
+        height: 380px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: rgba(218, 112, 214, 0.518);
+      }
+      .span {
+        position: absolute;
+        width: 380px;
+        height: 380px;
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+        color: #ffffff;
+        font-size: 30px;
+      }
+      .span::before {
+        content: "|";
+        position: absolute;
+        top: 35px;
+        font-size: 10px;
+        color: #ecf0f1;
+      }
+      .span_1 {
+        transform: rotateZ(30deg);
+      }
+      .span_2 {
+        transform: rotateZ(60deg);
+      }
+      .span_3 {
+        transform: rotateZ(90deg);
+      }
+      .span_4 {
+        transform: rotateZ(120deg);
+      }
+      .span_5 {
+        transform: rotateZ(150deg);
+      }
+      .span_6 {
+        transform: rotateZ(180deg);
+      }
+      .span_7 {
+        transform: rotateZ(210deg);
+      }
+      .span_8 {
+        transform: rotateZ(240deg);
+      }
+      .span_9 {
+        transform: rotateZ(270deg);
+      }
+      .span_10 {
+        transform: rotateZ(300deg);
+      }
+      .span_11 {
+        transform: rotateZ(330deg);
+      }
+      .span_12 {
+        transform: rotateZ(0deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="clock">
+          <div class="hour">
+            <div class="hr" id="hr"></div>
+          </div>
+          <div class="min">
+            <div class="mn" id="mn"></div>
+          </div>
+          <div class="sec">
+            <div class="sc" id="sc"></div>
+          </div>
+          <div class="back">
+            <span class="span span_1">1</span>
+            <span class="span span_2">2</span>
+            <span class="span span_3">3</span>
+            <span class="span span_4">4</span>
+            <span class="span span_5">5</span>
+            <span class="span span_6">6</span>
+            <span class="span span_7">7</span>
+            <span class="span span_8">8</span>
+            <span class="span span_9">9</span>
+            <span class="span span_10">10</span>
+            <span class="span span_11">11</span>
+            <span class="span span_12">12</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const deg = 6;
+      const hr = document.getElementById("hr");
+      const mn = document.getElementById("mn");
+      const sc = document.getElementById("sc");
+      const setTime = () => {
+        let day = new Date();
+        let hh = day.getHours() * 30;
+        let mm = day.getMinutes() * deg;
+        let ss = day.getSeconds() * deg;
+        hr.style.transform = `rotateZ(${hh + mm / 12 + ss / 60}deg)`;
+        mn.style.transform = `rotateZ(${mm + ss / 60}deg)`;
+        sc.style.transform = `rotateZ(${ss}deg)`;
+      };
+      setTime();
+      setInterval(setTime, 1000);
+    </script>
+  </body>
+</html>
