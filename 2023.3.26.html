@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+    <style>
+      .span {
+        padding: 10px;
+        color: red;
+        background-color: rgba(106, 0, 255, 0.108);
+      }
+      .span::after {
+        content: "|";
+        animation: anim 1s ease-in-out infinite;
+      }
+      @keyframes anim {
+        0%,
+        49% {
+          opacity: 1;
+        }
+        50%,
+        100% {
+          opacity: 0;
+        }
+      }
+      .span_none::after {
+        content: "";
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div v-for="item in list" :key="item.id">
+        <div class="span" :class="item.isCursor?'':'span_none'">
+          {{ item.showlabel }}
+        </div>
+      </div>
+      <br />
+      <div class="input-group mb-3">
+        <input
+          v-model="input"
+          type="text"
+          class="form-control"
+          placeholder="Recipient's username"
+        />
+        <span class="btn btn-primary input-group-text" @click="add()">
+          添加一行
+        </span>
+      </div>
+    </div>
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            input:
+              "大自然才是最好的调色师，看着地球上各种各样的色彩变换，不禁感叹身边处处充满着美。清澈的湖水美的十分纯净，湖蓝深邃的蓝色，却又带着跳脱的亮光，美丽的像是沉浸在无尽的静谧中的湖水。",
+            list: [
+              {
+                id: 1,
+                isCursor: false,
+                label: "",
+                showlabel: "",
+              },
+            ],
+          };
+        },
+        mounted() {
+          this.add();
+        },
+        methods: {
+          add() {
+            if (this.input) {
+              const id = Math.random();
+              console.log(id);
+              this.list.push({
+                id,
+                isCursor: true,
+                label: this.input,
+                showlabel: "",
+              });
+              const item = this.list.find((e) => e.id === id);
+              const sum = this.input.length;
+              let len = 0;
+              const timer = setInterval(() => {
+                if (len >= sum || len >= 200) {
+                  item.isCursor = false;
+                  clearInterval(timer);
+                  return;
+                }
+                item.showlabel += item.label[len];
+                len++;
+              }, 200);
+            }
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
