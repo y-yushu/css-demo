@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        background: #9996;
+      }
+      .box {
+        position: relative;
+        width: 360px;
+        height: 240px;
+        overflow: hidden;
+      }
+      .box .back {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 90%;
+        height: 90%;
+        border-radius: 8px;
+        transition: all 0.5s;
+        background: #000;
+      }
+      .box:hover .back {
+        width: 100%;
+        height: 100%;
+      }
+      .box .card {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        background: #fff;
+        border-radius: 8px;
+      }
+      .box .top {
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 100%;
+        height: 100%;
+        transition: all 0.5s;
+        background: linear-gradient(45deg, transparent 80%, #9999997a);
+        animation: gradient 5s ease-in-out linear;
+      }
+      .box:hover .top {
+        top: 0;
+        right: 0;
+        /* background: linear-gradient(45deg, transparent 90%, pink); */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="back"></div>
+      <div class="card"></div>
+      <div class="top"></div>
+    </div>
+  </body>
+</html>
