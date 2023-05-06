@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/ico/sdkjdx.ico" />
+    <title>山东科技大学 管理平台</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      .login-content {
+        position: relative;
+        height: 100%;
+        background-image: url("./assets/image/login_04.jpg");
+        background-size: 100% 100%;
+      }
+      .form-content {
+        position: absolute;
+        top: 230.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 446px;
+        height: 439px;
+        background: url(./assets/image/form_bg.png) center no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        animation: formContent 0.5s;
+      }
+      @keyframes formContent {
+        from {
+          top: 0px;
+        }
+        to {
+          top: 230.5px;
+        }
+      }
+      .form-content .edu-form-logo {
+        width: 326px;
+        height: 85px;
+        margin-bottom: 22px;
+        background: url(./assets/image/image3.png) center no-repeat;
+      }
+      .edu-form-el {
+        position: relative;
+        margin-bottom: 24px;
+        height: 42px;
+        line-height: 40px;
+        border-bottom: 1px solid #e9e7e8;
+        transition: all 0.5s;
+      }
+      .edu-form-el-back::after {
+        content: "";
+        width: 0;
+        height: 2px;
+        background-color: #1687d9;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        animation: bottomLineBack 0.5s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes bottomLineBack {
+        from {
+          width: 100%;
+          left: 0;
+        }
+        to {
+          width: 0;
+          left: 50%;
+        }
+      }
+      .edu-form-el-fouce::after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: #1687d9;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        animation: bottomLine 0.5s cubic-bezier(0.42, -0.68, 0.48, 1.6);
+      }
+      @keyframes bottomLine {
+        0% {
+          width: 0;
+          left: 50%;
+        }
+        100% {
+          width: 100%;
+          left: 0;
+        }
+      }
+      .form-content .form-line {
+        width: 362px;
+      }
+      .edu-form-el img {
+        width: 16px;
+        height: 16px;
+        transform: translateY(2px);
+      }
+      .line-3 {
+        width: 362px;
+        display: flex;
+      }
+      .verifycode {
+        width: 96px;
+        height: 36px;
+      }
+      .form-line input {
+        width: 326px;
+        border: none;
+        outline: none;
+        line-height: 36px;
+        font-size: 16px;
+        color: #666;
+        text-indent: 10px;
+        letter-spacing: 1px;
+        background: #fcfcfd;
+        margin-bottom: 2px;
+      }
+      .form-w input {
+        width: 235px;
+        border: none;
+        outline: none;
+        line-height: 36px;
+        font-size: 16px;
+        color: #666;
+        text-indent: 10px;
+        letter-spacing: 1px;
+        background: #fcfcfd;
+      }
+      .form-content .login-btn {
+        width: 362px;
+        height: 46px;
+        line-height: 46px;
+        border-radius: 3px;
+        cursor: pointer;
+        text-align: center;
+        background: #1687d9;
+        opacity: 0.95;
+        color: #fff;
+        font-size: 20px;
+        letter-spacing: 5px;
+        transition: box-shadow 0.2s ease-in, background-color 0.2s ease;
+      }
+      .form-content .login-btn:hover {
+        background-color: #147ac5;
+        box-shadow: 0 3px 6px #00000033, 0 3px 6px #00000042;
+        transition: box-shadow 0.2s ease-in, background-color 0.2s ease;
+      }
+      .login-prompt {
+        position: absolute;
+        top: 669.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: loginPrompt 0.5s;
+      }
+      @keyframes loginPrompt {
+        from {
+          top: 100%;
+          left: 0;
+        }
+        to {
+          top: 669.5px;
+          left: 50%;
+        }
+      }
+      .login-prompt p {
+        text-align: center;
+        color: #8fc0dc;
+        font-size: 14px;
+        line-height: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-content">
+      <div class="form-content">
+        <div class="edu-form-logo"></div>
+        <div class="edu-form-el form-line">
+          <img src="./assets/icon/username.png" alt="" srcset="" />
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="用户名"
+            onfocus="onFocus0()"
+            onblur="onBlur0()"
+          />
+        </div>
+        <div class="edu-form-el form-line">
+          <img src="./assets/icon/password.png" alt="" srcset="" />
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="密码"
+            onfocus="onFocus1()"
+            onblur="onBlur1()"
+          />
+        </div>
+        <div class="line-3">
+          <div class="edu-form-el form-w">
+            <img src="./assets/icon/code.png" alt="" srcset="" />
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="验证码"
+              onfocus="onFocus2()"
+              onblur="onBlur2()"
+            />
+          </div>
+          <img class="verifycode" src="./assets/image/verifycode.jpg" alt="" />
+        </div>
+        <div class="login-btn">登录</div>
+      </div>
+      <div class="login-prompt">
+        <p>
+          为保证您的使用体验，我们建议您使用IE9及以上，谷歌51.0及以上、火狐43.0及以上浏览器进行访问
+        </p>
+        <p>使用其它浏览器，可能出现部分功能无法正常使用的情况，敬请谅解！</p>
+        <p>主办单位：山东科技大学 技术支持：弘成科技发展有限公司</p>
+        <p>Copyright©2020弘成科技发展有限公司版权所有</p>
+      </div>
+    </div>
+    <script>
+      const dom = document.getElementsByClassName("edu-form-el");
+      function onFocus0() {
+        dom[0].classList.remove("edu-form-el-back");
+        dom[0].classList.add("edu-form-el-fouce");
+      }
+      function onBlur0() {
+        dom[0].classList.remove("edu-form-el-fouce");
+        dom[0].classList.add("edu-form-el-back");
+      }
+      function onFocus1() {
+        dom[1].classList.remove("edu-form-el-back");
+        dom[1].classList.add("edu-form-el-fouce");
+      }
+      function onBlur1() {
+        dom[1].classList.remove("edu-form-el-fouce");
+        dom[1].classList.add("edu-form-el-back");
+      }
+      function onFocus2() {
+        dom[2].classList.remove("edu-form-el-back");
+        dom[2].classList.add("edu-form-el-fouce");
+      }
+      function onBlur2() {
+        dom[2].classList.remove("edu-form-el-fouce");
+        dom[2].classList.add("edu-form-el-back");
+      }
+    </script>
+  </body>
+</html>
