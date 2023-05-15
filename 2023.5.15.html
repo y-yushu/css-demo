@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>学习Lottie</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+      }
+      .main {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 220px);
+        grid-row-gap: 10px;
+        justify-content: space-evenly;
+      }
+      .box {
+        position: relative;
+        height: 220px;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        border: 1px solid #f56c6c;
+      }
+      .box > span {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div id="dom1" class="box">
+        <span>正常使用</span>
+      </div>
+      <div id="dom2" class="box">
+        <span>点击开始动画</span>
+      </div>
+      <div id="dom3" class="box">
+        <span>点击消失开始</span>
+      </div>
+      <div id="dom4" class="box">
+        <span>可反复</span>
+      </div>
+    </div>
+    <script src="./lib/lottie.min.js"></script>
+    <script>
+      // 正常使用
+      const dom1 = document.getElementById("dom1");
+      const anim1 = bodymovin.loadAnimation({
+        container: dom1,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "./assets/lottie/ball.json",
+      });
+      // 点击开始动画
+      const dom2 = document.getElementById("dom2");
+      const anim2 = bodymovin.loadAnimation({
+        container: dom2,
+        renderer: "svg",
+        loop: false,
+        autoplay: false,
+        path: "./assets/lottie/pitch.json",
+      });
+      dom2.addEventListener("click", () => {
+        anim2.play();
+      });
+      // 点击消失开始
+      const dom3 = document.getElementById("dom3");
+      const anim3 = bodymovin.loadAnimation({
+        container: dom3,
+        renderer: "svg",
+        loop: false,
+        autoplay: true,
+        path: "./assets/lottie/pitch.json",
+      });
+      let _play = true;
+      dom3.addEventListener("click", () => {
+        if (_play) {
+          _play = false;
+          anim3.stop();
+        } else {
+          _play = true;
+          anim3.play();
+        }
+      });
+      // 可反复
+      const dom4 = document.getElementById("dom4");
+      const anim4 = bodymovin.loadAnimation({
+        container: dom4,
+        renderer: "svg",
+        loop: false,
+        autoplay: false,
+        path: "./assets/lottie/menu.json",
+      });
+      let boo4 = false;
+      dom4.addEventListener("click", () => {
+        if (boo4) {
+          boo4 = false;
+          anim4.setDirection(-1);
+        } else {
+          boo4 = true;
+          anim4.setDirection(1);
+        }
+        anim4.play();
+      });
+    </script>
+  </body>
+</html>
